@@ -7,24 +7,24 @@ GOPY is a free and open-source Python tool written in order to automate the gene
 ### Quick Start
  You can use GOPY in the following manner to generate graphene-based 2D PDB models:
 
-'python GOPY.py generate_PG X Y file_to_save'  
+python GOPY.py generate_PG X Y file_to_save  
 
 - Used to generate a pristine graphene layer. The X and Y dimensions are required in Å. The file_to_save represents the name under which the new PDB file should be saved.
 E.g. 'python GOPY.py generate_PG 30 30' will generate a 3 nm x 3 nm PG layer. 
 
-'python GOPY.py generate_GO path_to_file X Y Z file_to_save'  
+python GOPY.py generate_GO path_to_file X Y Z file_to_save  
 
 - Used to generate a graphene oxide layer. The 'path_to_file' points to an existing pristine graphene PDB file. You may first generate a PG layer using GOPY. X corresponds to the desired number of carboxyl functional groups, Y corresponds to the number of epoxy groups and Z corresponds to the number of hydroxyl groups. The file_to_save represents the name under which the new PDB file should be saved.
 E.g. 'python GOPY.py /path/to/PG.pdb 30 60 60' will generate a GO layer, attempting to place
 30 carboxyl groups, 60 epoxy groups and 60 hydroxyl groups.
 
-'python GOPY.py generate_rGO_PEG_NH2 path_to_file X Y Z file_to_save'     
+python GOPY.py generate_rGO_PEG_NH2 path_to_file X Y Z file_to_save     
 
 - Used to generate a rGO-PEG-NH2 layer. The 'path_to_file' points to an existing graphene oxide (GO) PDB file. X Y and Z represent the percentages of carboxyl, epoxy, respectively hydroxyl groups to be removed. All removed hydroxyl and epoxy groups that were removed will be replaced by the PEG-NH2 chains. The file_to_save represents the name under which the new PDB file should be saved.
 E.g. 'python GOPY.py /path/to/GO.pdb 0.6 1 1 PEG-NH2.pdb' removes 60% of carboxyl groups
 and 100% of epoxy and hydroxyl groups.
 
-'python GOPY.py generate_hole path_to_file N R1 R2 ARG1 ARG2 C file_to_save'  
+python GOPY.py generate_hole path_to_file N R1 R2 ARG1 ARG2 C file_to_save  
 
 - Used to generate holes in a PG layer. N represents the number of holes to be created. 
 R1, R2 represent the range expressed as a list such as "[x, y]", ARG1 should be either
@@ -35,7 +35,7 @@ attempts to create 10 holes with a size between 11 and 20 atoms in a multi-direc
 not allowing the holes to touch edges. Cleanup is performed at the end and the file is saved 
 as hole.pdb.
 
-'python GOPY.py generate_N_doped path_to_file 10 9 8 file_to_save' 
+python GOPY.py generate_N_doped path_to_file 10 9 8 file_to_save 
 
 - Used to generate an N-doped graphene layer. X Y and Z represent the number of N-graphitic,
 N-pyridinic and N-pyrrolic atoms respectively.
