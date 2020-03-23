@@ -2,7 +2,6 @@
 
 GOPY is a free and open-source Python tool written in order to automate the generation of 2D graphene-based molecular models such as pristine graphene (PG), together with different forms of graphene oxide (GO/ rGO/ GO-COOH/ GO-OH/ rGO-PEG-NH2 / N-doped graphene). Key advantages to using GOPY instead of manually building the molecular models are: significantly speeding up the process, reducing potential bias due to the manual placing of functional groups and facilitating the generation of much larger and more complex models than are usually built manually. Each model is outputted in the PDB format which is easily convertible to a wide array of other molecular formats.
 
-### Illustrative Examples
 ### Quick Start
  You can use GOPY in the following manner to generate graphene-based 2D PDB models:
 
@@ -40,6 +39,9 @@ as hole.pdb.
 N-pyridinic and N-pyrrolic atoms respectively.
 E.g. 'python GOPY.py /path/to/PG.pdb 10 10 10 Ndoped.pdb' generates an N-doped molecule of the 
 PG layer given as input with 10 N-graphitic atoms, 9 N-pyridinic atoms and 8 N-pyrrolic atoms.  
+
+### Illustrative Examples
+![Illustrative Examples](wast2.png)
 
 #### Acknowledgements
 This work was supported by a grant of the Ministry of Research and Innovation, Operational Program
