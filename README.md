@@ -47,3 +47,6 @@ PG layer given as input with 10 N-graphitic atoms, 9 N-pyridinic atoms and 8 N-p
 This work was supported by a grant of the Ministry of Research and Innovation, Operational Program
 Competitiveness Axis 1—Section E, Program co-financed from European Regional Development Fund under the
 project number 154/25.11.2016, P_37_221/2015, “A novel graphene biosensor testing osteogenic potency; capturing best stem cell performance for regenerative medicine” (GRABTOP). 
+
+####Please cite us:
+(Pending)
