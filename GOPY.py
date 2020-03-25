@@ -730,12 +730,6 @@ def fix_sphere_m (center_x, center_y, center_z, radius, centers, radii, len_poin
     test the distance between each random point and nearby atoms. If too small, the points get removed.
     Len_points refers to how many random points one should plot/place."""
     
-    global ox
-    global oy
-    global oz
-    global xx
-    global yy
-    global zz
     g_x = []
     g_y = []
     g_z = []
@@ -743,9 +737,7 @@ def fix_sphere_m (center_x, center_y, center_z, radius, centers, radii, len_poin
     x = [points[i][0] for i in range(0, len(points))]       
     y = [points[i][1] for i in range(0, len(points))]
     z = [points[i][2] for i in range(0, len(points))]
-    xx = x
-    yy = y
-    zz = z
+
     for i in range(0, len(points)):
         check = 0
         j = 0
@@ -757,9 +749,7 @@ def fix_sphere_m (center_x, center_y, center_z, radius, centers, radii, len_poin
             g_x.append(x[i])
             g_y.append(y[i])
             g_z.append(z[i])
-    ox = g_x
-    oy = g_y
-    oz = g_z
+
     return g_x, g_y, g_z
 
 def fix_sphere_h (center_x, center_y, center_z, radius, centers, radii, len_points, list_of_a):
