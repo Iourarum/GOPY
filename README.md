@@ -51,4 +51,4 @@ Competitiveness Axis 1—Section E, Program co-financed from European Regional D
 project number 154/25.11.2016, P_37_221/2015, “A novel graphene biosensor testing osteogenic potency; capturing best stem cell performance for regenerative medicine” (GRABTOP). 
 
 #### Please cite us:
-(Pending)
+https://doi.org/10.1016/j.softx.2020.100586
