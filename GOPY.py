@@ -608,7 +608,7 @@ def add_epoxy(atom, atom_list, added_functional_groups, ct):
         atom_list.append(epoxy_atom)
         if ((len(identify_bonds(epoxy_atom, atom_list)) == 2) and ((identify_bonds(epoxy_atom, atom_list)[0][0].atom_number == atom.atom_number) or (identify_bonds(epoxy_atom, atom_list)[1][0].atom_number == atom.atom_number)) and ((identify_bonds(epoxy_atom, atom_list)[0][0].atom_number == atom2.atom_number) or ((identify_bonds(epoxy_atom, atom_list)[1][0].atom_number == atom2.atom_number)))):
             CY = Atom(atom.atom_number, 'CY', 'E1A', epoxy_atom.residue_number, atom.x, atom.y, atom.z)
-            CY2 = Atom(atom2.atom_number, 'CY', 'E1A', epoxy_atom.residue_number, atom2.x, atom2.y, atom2.z)
+            CY2 = Atom(atom2.atom_number, 'CZ', 'E1A', epoxy_atom.residue_number, atom2.x, atom2.y, atom2.z)
             atom_list.remove(atom); atom_list.remove(atom2)
             atom_list.append(CY); atom_list.append(CY2) 
             if atom in edge_map: edge_map.remove(atom)
