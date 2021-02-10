@@ -3,7 +3,7 @@
 !!!IMPORTANT: if you encounter an error on line 2377, try adding
 ###### #!/usr/bin/python
 ###### # -*- coding: latin-1 -*-
-at the beginning of the code! (Thanks to Dr. Julio M. Coll for this observation)
+at the beginning of the code! (Thanks to Dr. Julio M. Coll for this observation, Dr.Biología. Universidad Complutense, Madrid, SPAIN)
 For any error please write to me.
 
 GOPY_COO.py should allow one to add COO groups instead of COOH. Works identically.
