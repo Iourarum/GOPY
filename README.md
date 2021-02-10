@@ -6,6 +6,8 @@
 at the beginning of the code! (Thanks to Dr. Julio M. Coll for this observation)
 For any error please write to me.
 
+GOPY_COO.py should allow one to add COO groups instead of COOH. Works identically.
+
 # GOPY: A tool for building 2D graphene-based computational models
 ### Paper available at: https://doi.org/10.1016/j.softx.2020.100586
 
