@@ -473,9 +473,9 @@ def create_GO(init_file, no_COOH, no_epoxy, no_OH, filename1):
             for atom_CY in atoms:
                 if ((atom_CY.atom_name == "CY") and (atom_CY.residue_name == "E1A") and (atom_CY.residue_number == atom.residue_number)):
                     for atom_CY2 in atoms: 
-                        if ((atom_CY2.atom_name == "CY") and (atom_CY2.residue_name == "E1A") and (atom_CY2.residue_number == atom.residue_number) and (atom_CY2 != atom_CY)):
+                        if ((atom_CY2.atom_name == "CZ") and (atom_CY2.residue_name == "E1A") and (atom_CY2.residue_number == atom.residue_number) and (atom_CY2 != atom_CY)):
                             New_CY = Atom( atno + 0, "CY", "E1A", atom.residue_number, atom_CY.x,  atom_CY.y,  atom_CY.z)
-                            New_CY2 = Atom(atno + 1, "CY", "E1A", atom.residue_number, atom_CY2.x, atom_CY2.y, atom_CY2.z)
+                            New_CY2 = Atom(atno + 1, "CZ", "E1A", atom.residue_number, atom_CY2.x, atom_CY2.y, atom_CY2.z)
                             New_OE = Atom( atno + 2, "OE", "E1A", atom.residue_number, atom.x,     atom.y,     atom.z)
                             atno += 3
                             new_list.append(New_CY); new_list.append(New_CY2); new_list.append(New_OE);
