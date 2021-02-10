@@ -1,10 +1,11 @@
 ##### Update: I did a quick update recently. Personally I've been using GOPY for producing PDB files which I later imported into xleap / AmberTools. When it comes to graphene oxide (GO), an epoxy group contains two carbon atoms and both were given the same name in GOPY, "CY". I recently found that giving the second a different name worked better, so now the second is named "CZ". If you would like both of them to be "CY", either change the code or open a text editor and change all "CZ" to "CY". I will be perfectting this later (checking for errors etc). I did this because when I used xleap, I defined a lib file for the graphene atom, COOH residue, epoxy residue and hydroxyl residue and the "bondbydistance" command worked better this way. If you need help, have any question or are looking for a colaboration, please write to me at sebmuraru@gmail.com . I am willing to help! Also, please check my researchgate profile at: https://www.researchgate.net/profile/Sebastian_Muraru .
 
+-
 !!!IMPORTANT: if you encounter an error on line 2377, try adding
 ###### #!/usr/bin/python
 ###### # -*- coding: latin-1 -*-
 at the beginning of the code! (Thanks to Dr. Julio M. Coll for this observation, Dr.Biología. Universidad Complutense, Madrid, SPAIN)
-For any error please write to me.
+-
 
 GOPY_COO.py should allow one to add COO groups instead of COOH. Works identically.
 
