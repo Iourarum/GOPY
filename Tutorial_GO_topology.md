@@ -12,9 +12,10 @@
 
 ###### The next issue one has to be aware of regards the choice of parameters for the four different residues: GGG - pristine graphene, C1A - carboxyl, E1A - epoxy, H1A - hydroxyl. In the study in which we used the GOPY script ( https://www.mdpi.com/2079-6412/10/3/289 ) we cited these two studies (similar authors) for parameters for pristine graphene and functional groups:
 https://iopscience.iop.org/article/10.1088/0022-3727/47/50/505401/meta
+
 https://iopscience.iop.org/article/10.1088/0022-3727/48/27/275402/meta
 
-Essentially, the authors state regarding functional groups: "The parameters of hydroxyl, carboxyl and epoxy groups were taken from the AMBER99SB force field for serine, glutamic acid and dialkyl ether, respectively.". I had to look in GROMACS force field files to figure the parameters. How one interprets their sentence depends, I guess. For example, if you go in your GROMACS installation /share/top/amber99sb.ff, open aminoacids.rtp, find "GLH" - that's where I picked the parameters for carboxyl (meaning partial charges, atom types etc). Well, following this line of thought I eventually ended up with the parameters I think are right for all three functional groups. Why did I write this bit? Well, I have uploaded here library files (.lib) for the COOH functional group, but not COO, but one can pick parameters for a COO functional group similarly. For the carbon atoms making up the pristine graphene, they state all parameters. All one needs to do is to convert them to GROMACS units (if I remember right). This aspect can be searched easily.
+###### Essentially, the authors state regarding functional groups: "The parameters of hydroxyl, carboxyl and epoxy groups were taken from the AMBER99SB force field for serine, glutamic acid and dialkyl ether, respectively.". I had to look in GROMACS force field files to figure the parameters. How one interprets their sentence depends, I guess. For example, if you go in your GROMACS installation /share/top/amber99sb.ff, open aminoacids.rtp, find "GLH" - that's where I picked the parameters for carboxyl (meaning partial charges, atom types etc). Well, following this line of thought I eventually ended up with the parameters I think are right for all three functional groups. Why did I write this bit? Well, I have uploaded here library files (.lib) for the COOH functional group, but not COO, but one can pick parameters for a COO functional group similarly. For the carbon atoms making up the pristine graphene, they state all parameters. All one needs to do is to convert them to GROMACS units (if I remember right). This aspect can be searched easily.
 
 
 Here we go, producing GROMACS topology and coordinate files starting from the PDB files for Graphene/GO:
@@ -55,5 +56,7 @@ Then edit and use the python script attached (ambertogro.py) to obtain the conve
 
 Essentially this is it. Good luck with research, hope for the best!
 Don't hesitate to contact me if anyting is unclear or you think I can be of help with something.
+
+CX           6      12.01    0.0000  A   3.39967e-01  3.59824e-01
 
 
