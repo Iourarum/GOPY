@@ -1,3 +1,4 @@
+(Wait, still editing, still need to upload .lib and .frcmod parameter files. Come back in 12 hrs at most).
 ###### Please read the bolded paragraph below:
 ##### Link to GOPY paper: https://doi.org/10.1016/j.softx.2020.100586 . We appreciate all citations! This tutorial is here to help those struggling with creating GROMACS or AMBER topology and coordinate files for Graphene Oxide (GO). In the following steps, GO is assumed to be functionalized with COOH, -O- and OH groups.
 
