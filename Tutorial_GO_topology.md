@@ -29,11 +29,19 @@ https://doi.org/10.1088/0022-3727/48/27/275402
 ###### Essentially, the authors state regarding functional groups: "The parameters of hydroxyl, carboxyl and epoxy groups were taken from the AMBER99SB force field for serine, glutamic acid and dialkyl ether, respectively.". I had to look in GROMACS force field files to figure the parameters. How one interprets their sentence depends, I guess. For example, if you go in your GROMACS installation /share/top/amber99sb.ff, open aminoacids.rtp, find "GLH" - that's where I picked the parameters for carboxyl (meaning partial charges, atom types etc). Well, following this line of thought I eventually ended up with the parameters I think are right for all three functional groups. Why did I write this bit? Well, I have uploaded here library files (.lib) for the COOH functional group, but not COO, but one can pick parameters for a COO functional group similarly. For the carbon atoms making up the pristine graphene, they state all parameters. All one needs to do is to convert them to GROMACS units (if I remember right). This aspect can be searched easily.
 
 0. Open the earlier generated GO.pdb file in an editor of choice (gedit, nano etc.)
-1. Single out one CX/GGG atom, one carboxyl, one hydroxyl and one epoxy functional groups and save these as independent PDB files, you may use these below:
-CX/GGG
--COOH
--OH
--O-
+1. Single out one CX/GGG atom, one carboxyl, one hydroxyl and one epoxy functional groups and save these as independent PDB files, you may use those present in the GO_tutorial folder.
+2. To be able to generate AMBER coordinates and topology files, we will need to follow some steps in xleap.
+2.1 Open xleap through typing "xleap" in terminal (xleap is installed as part of AmberTools)
+2.2 Import the AMBER99SB default parameters by typing "source oldff/leaprc.ff99SB". Attention: Xleap has its own set of quirks you need to take into account. Keep your cursor inside the typing area on xleap and keep NumLock off) - assuming you have AmberTools installed in a conda environment called "AmberTools20", you may look for other parameter sets at: ../anaconda3/envs/AmberTools20/dat/leap/cmd/
+2.3 Moving on, open all PDB files of interest, using:
+mol_GGG = loadpdb /path/to/GGG.pdb
+mol_C1A = loadpdb /path/to/C1A.pdb
+mol_H1A = loadpdb /path/to/H1A.pdb
+mol_E1A = loadpdb /path/to/E1A.pdb
+2.4 Edit parameters for each new molecule
+
+
+
 
 
 Here we go, producing GROMACS topology and coordinate files starting from the PDB files for Graphene/GO:
