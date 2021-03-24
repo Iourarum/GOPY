@@ -31,14 +31,14 @@ https://doi.org/10.1088/0022-3727/48/27/275402
 0. Open the earlier generated GO.pdb file in an editor of choice (gedit, nano etc.)
 1. Single out one CX/GGG atom, one carboxyl, one hydroxyl and one epoxy functional groups and save these as independent PDB files, you may use those present in the GO_tutorial folder.
 2. To be able to generate AMBER coordinates and topology files, we will need to follow some steps in xleap.
-2.1 Open xleap through typing "xleap" in terminal (xleap is installed as part of AmberTools)
-2.2 Import the AMBER99SB default parameters by typing "source oldff/leaprc.ff99SB". Attention: Xleap has its own set of quirks you need to take into account. Keep your cursor inside the typing area on xleap and keep NumLock off) - assuming you have AmberTools installed in a conda environment called "AmberTools20", you may look for other parameter sets at: ../anaconda3/envs/AmberTools20/dat/leap/cmd/
-2.3 Moving on, open all PDB files of interest, using:
+2. 1 Open xleap through typing "xleap" in terminal (xleap is installed as part of AmberTools)
+2. 2 Import the AMBER99SB default parameters by typing "source oldff/leaprc.ff99SB". Attention: Xleap has its own set of quirks you need to take into account. Keep your cursor inside the typing area on xleap and keep NumLock off) - assuming you have AmberTools installed in a conda environment called "AmberTools20", you may look for other parameter sets at: ../anaconda3/envs/AmberTools20/dat/leap/cmd/
+2. 3 Moving on, open all PDB files of interest, using:
 mol_GGG = loadpdb /path/to/GGG.pdb
 mol_C1A = loadpdb /path/to/C1A.pdb
 mol_H1A = loadpdb /path/to/H1A.pdb
 mol_E1A = loadpdb /path/to/E1A.pdb
-2.4 Edit parameters for each new molecule
+2. 4 Edit parameters for each new molecule
 
 
 
