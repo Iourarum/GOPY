@@ -1,6 +1,6 @@
 (Wait, still editing, still need to upload .lib and .frcmod parameter files. Come back in 12 hrs at most).
 ###### Please read the bolded paragraph below:
-##### Link to GOPY paper: https://doi.org/10.1016/j.softx.2020.100586 . We appreciate all citations! This tutorial is here to help those struggling with creating GROMACS or AMBER topology and coordinate files for Graphene Oxide (GO). In the following steps, GO is assumed to be functionalized with COOH, -O- and OH groups.
+##### Link to GOPY paper: https://doi.org/10.1016/j.softx.2020.100586 . We appreciate all citations! This tutorial is here to help those struggling with creating GROMACS or AMBER topology and coordinate files for Graphene Oxide (GO). In the following steps, GO is assumed to be functionalized with COOH, -O- and OH groups. We'll take you step by step, as if doing actual research, as we did it (to the best of our memory).
 
 
 
@@ -12,9 +12,12 @@
 ###### What's important is that when we made GOPY, we initially planned for one CX atom to represent one full GGG residue (pristine graphene), C, O, O, H to represent a C1A residue (carboxyl, 4 atoms only), O to represent one E1A residue (epoxy, 1 atom only) and H, O to represent one H1A residue (hydroxyl 2 atoms). As it is today, GOPY names the carbon atoms on the graphene plane to which functional groups are connected as "CY" instead of "CX" (or one "CY" and one "CZ" in the case of epoxy). Essentially, CY and CZ are CX atoms. Long story short, in the current form of GOPY, carboxyl residues now contain the CY atom and the C, O, O and H (total 5 atoms), epoxy residues contain the O and the two carbon atoms on the graphene plane (total 3 atoms), called CY and CZ, hydroxyl residues contain the H, O and the CY atom on the graphene plane (total 3 atoms).
 
 ###### The next issue one has to be aware of regards the choice of parameters for the four different residues: GGG - pristine graphene, C1A - carboxyl, E1A - epoxy, H1A - hydroxyl. In the study in which we used the GOPY script ( https://www.mdpi.com/2079-6412/10/3/289 ) we cited these two studies (similar authors) for parameters for pristine graphene and functional groups:
-https://iopscience.iop.org/article/10.1088/0022-3727/47/50/505401/meta
 
-https://iopscience.iop.org/article/10.1088/0022-3727/48/27/275402/meta
+https://doi.org/10.1088/0022-3727/47/50/505401
+
+https://doi.org/10.1088/0022-3727/48/27/275402
+
+(Note: Renaming some of the CX atoms to CY and CZ, as explained in the earlier paragraph, should make it easier for one to use the parameters present herehttps://doi.org/10.1002/chem.201701733 . This will not be part of this tutorial, unless we decide to expand it slightly.)
 
 ###### Essentially, the authors state regarding functional groups: "The parameters of hydroxyl, carboxyl and epoxy groups were taken from the AMBER99SB force field for serine, glutamic acid and dialkyl ether, respectively.". I had to look in GROMACS force field files to figure the parameters. How one interprets their sentence depends, I guess. For example, if you go in your GROMACS installation /share/top/amber99sb.ff, open aminoacids.rtp, find "GLH" - that's where I picked the parameters for carboxyl (meaning partial charges, atom types etc). Well, following this line of thought I eventually ended up with the parameters I think are right for all three functional groups. Why did I write this bit? Well, I have uploaded here library files (.lib) for the COOH functional group, but not COO, but one can pick parameters for a COO functional group similarly. For the carbon atoms making up the pristine graphene, they state all parameters. All one needs to do is to convert them to GROMACS units (if I remember right). This aspect can be searched easily.
 
