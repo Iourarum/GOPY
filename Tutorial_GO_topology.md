@@ -7,7 +7,7 @@
 
 ### Tutorial on Creating Graphene Oxide Topology Files (AMBER or GROMACS - to be used with Forcefields from the AMBER-family or OPLSAA)
 
-###### Pre-requisites: Python (prefferably 3.9 and not 3.8), AmberTools (from source or through "conda install -c conda-forge ambertools"). We will make use of tleap or xleap and parmed from AmberTools. In tleap / xleap we create .lib files for defining a residue and use .frcmod files to store parameters not included in a forcefield by default.
+###### Pre-requisites: Python (prefferably 3.9 and not 3.8), AmberTools (from source or through "conda install -c conda-forge ambertools"). We will make use of tleap or xleap and parmed from AmberTools. In tleap / xleap we create .lib files for defining a residue and use .frcmod files to store parameters not included in a forcefield by default. Thus, please make sure you have these pre-requisites installed.
 
 ###### What's important is that when we made GOPY, we initially planned for one CX atom to represent one full GGG residue (pristine graphene), C, O, O, H to represent a C1A residue (carboxyl, 4 atoms only), O to represent one E1A residue (epoxy, 1 atom only) and H, O to represent one H1A residue (hydroxyl 2 atoms). As it is today, GOPY names the carbon atoms on the graphene plane to which functional groups are connected as "CY" instead of "CX" (or one "CY" and one "CZ" in the case of epoxy). Essentially, CY and CZ are CX atoms. Long story short, in the current form of GOPY, carboxyl residues now contain the CY atom and the C, O, O and H (total 5 atoms), epoxy residues contain the O and the two carbon atoms on the graphene plane (total 3 atoms), called CY and CZ, hydroxyl residues contain the H, O and the CY atom on the graphene plane (total 3 atoms).
 
@@ -19,6 +19,13 @@ https://doi.org/10.1088/0022-3727/48/27/275402
 
 (Note: Renaming some of the CX atoms to CY and CZ, as explained in the earlier paragraph, should make it easier for one to use the parameters present here https://doi.org/10.1002/chem.201701733 . This will not be part of this tutorial, unless we decide to expand it slightly.)
 
+#### Creating a GO PDB file using GOPY
+##### Please download GOPY. We are going to create a small, 5 nm x 5 nm GO molecule using the formula C20(OH)2(-O-)2(COOH)1. 
+0. Navigate to the folder containing GOPY.py (if you encounter any error using GOPY, such as the encoding one, please see the readme file on github, use "python GOPY.py" help for instructions, preferably use Python3.9 and not Python3.8, should work with other versions sometimes too though.)
+1. Create a 5 nm x 5 nm PG PDB file using: "python GOPY.py generate_PG 50 50 PG.pdb"
+2. VMD detects 1009 atoms when visualising PG.pdb, meaning we need 50 COOH and 101 OH and -O- groups to add. Use: "python GOPY.py generate_GO path/to/file.pdb 50 101 101 GO.pdb". Now you should have a GO PDB file as described.
+
+#### Parameters for PG, -COOH, -OH, -O-
 ###### Essentially, the authors state regarding functional groups: "The parameters of hydroxyl, carboxyl and epoxy groups were taken from the AMBER99SB force field for serine, glutamic acid and dialkyl ether, respectively.". I had to look in GROMACS force field files to figure the parameters. How one interprets their sentence depends, I guess. For example, if you go in your GROMACS installation /share/top/amber99sb.ff, open aminoacids.rtp, find "GLH" - that's where I picked the parameters for carboxyl (meaning partial charges, atom types etc). Well, following this line of thought I eventually ended up with the parameters I think are right for all three functional groups. Why did I write this bit? Well, I have uploaded here library files (.lib) for the COOH functional group, but not COO, but one can pick parameters for a COO functional group similarly. For the carbon atoms making up the pristine graphene, they state all parameters. All one needs to do is to convert them to GROMACS units (if I remember right). This aspect can be searched easily.
 
 
