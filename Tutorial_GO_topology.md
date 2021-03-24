@@ -28,6 +28,13 @@ https://doi.org/10.1088/0022-3727/48/27/275402
 #### Parameters for PG, -COOH, -OH, -O-
 ###### Essentially, the authors state regarding functional groups: "The parameters of hydroxyl, carboxyl and epoxy groups were taken from the AMBER99SB force field for serine, glutamic acid and dialkyl ether, respectively.". I had to look in GROMACS force field files to figure the parameters. How one interprets their sentence depends, I guess. For example, if you go in your GROMACS installation /share/top/amber99sb.ff, open aminoacids.rtp, find "GLH" - that's where I picked the parameters for carboxyl (meaning partial charges, atom types etc). Well, following this line of thought I eventually ended up with the parameters I think are right for all three functional groups. Why did I write this bit? Well, I have uploaded here library files (.lib) for the COOH functional group, but not COO, but one can pick parameters for a COO functional group similarly. For the carbon atoms making up the pristine graphene, they state all parameters. All one needs to do is to convert them to GROMACS units (if I remember right). This aspect can be searched easily.
 
+0. Open the earlier generated GO.pdb file in an editor of choice (gedit, nano etc.)
+1. Single out one CX/GGG atom, one carboxyl, one hydroxyl and one epoxy functional groups and save these as independent PDB files, you may use these below:
+CX/GGG
+-COOH
+-OH
+-O-
+
 
 Here we go, producing GROMACS topology and coordinate files starting from the PDB files for Graphene/GO:
 Basically, we take the PDBs and create AMBER topology & coordinate file, then convert to GROMACS using a simple, already existing script, everything using tools from AmberTools/Python.
