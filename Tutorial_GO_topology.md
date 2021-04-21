@@ -39,72 +39,40 @@ https://doi.org/10.1088/0022-3727/48/27/275402
 2. To be able to generate AMBER coordinates and topology files, we will need to follow some steps in xleap.
 2. 1 Open xleap through typing "xleap" in terminal (xleap is installed as part of AmberTools). You may also use tleap if you preffer.
 2. 2 Import the AMBER99SB default parameters by typing 
-###### source oldff/leaprc.ff99SB. 
+##### source oldff/leaprc.ff99SB. 
 Attention: Xleap has its own set of quirks you need to take into account. Keep your cursor inside the typing area on xleap and keep NumLock off) - assuming you have AmberTools installed in a conda environment called "AmberTools20", you may look for other parameter sets at: ../anaconda3/envs/AmberTools20/dat/leap/cmd/ (other than those in oldff/leaprc.ff99SB ; as we have been involved in nucleic acid simulations we used parmbsc1 or "source leaprc.DNA.bsc1")
 4. 3 Moving on, open all PDB files of interest, using:
-###### mol_GGG = loadpdb /path/to/GGG.pdb
-###### mol_C1A = loadpdb /path/to/C1A.pdb
-###### mol_H1A = loadpdb /path/to/H1A.pdb
-###### mol_E1A = loadpdb /path/to/E1A.pdb
+##### mol_GGG = loadpdb /path/to/GGG.pdb
+##### mol_C1A = loadpdb /path/to/C1A.pdb
+##### mol_H1A = loadpdb /path/to/H1A.pdb
+##### mol_E1A = loadpdb /path/to/E1A.pdb
 2. 4 Edit parameters for each new molecule
 You should be familiar with this from other AMBER tutorials.
 Or you may use the lib files we have provided in the GO_tutorial folder - these are identical to the ones we used for this publication: https://doi.org/10.3390/coatings10030289 .
 If you prefer to do it manually, do:
-###### saveoff mol_GGG GGG.lib
-###### saveoff mol_C1A C1A.lib
-###### saveoff mol_E1A E1A.lib
-###### saveoff mol_H1A H1A.lib
-Now you will have your own lib files.
+##### saveoff mol_GGG GGG.lib
+##### saveoff mol_C1A C1A.lib
+##### saveoff mol_E1A E1A.lib
+##### saveoff mol_H1A H1A.lib
+###### Now you will have your own lib files.
 2. 5 The frcmod file present in GO_tutorial will look like a mess because the CX, CY and CZ atoms are, technically, all sharing the same parameters for this tutorial (or method described here). You can maybe improve them, possibly by using the parameters present in this study: https://doi.org/10.1002/chem.201701733 ... but I can't certify it's better or anything, I just figured you would be able to make use of the different names of these atoms to even further customize their parameters. You'll know what to do if you are experienced with MD.
 
 #### Creating the actual GO topology
 ###### This is the section you actually came for (and the files, maybe).
 
 Thus, open xleap and write (or tleap if you don't need GUI):
-###### source leaprc.DNA.bsc1 (this loads forcefield parameters or use source oldff/leaprc.ff99SB depending on which forcefield you would like to use)
-###### loadoff /path/to/library.lib (load all four: GGG, C1A, E1A, H1A)
-###### loadamberparams /path/to/file.frcmod (load the frcmod file with the parameters)
-###### mol = loadpdb /path/to/GO.pdb (load your GO molecule)
-###### edit mol (opens the molecule structure in a graphical format)
-##### Now, the way this was designed you should have all parameters imported well and no editing of parameters should be necessary. This saves so much time...
-###### bondbydistance mol (this will create all bonds based on distance, you should see it in the previously opened window if using xleap)
-###### saveamberparm mol mol.prmtop mol.inpcrd (prmtop is the topology file, inpcrd is the coordinate file, they can have any name really before the dot)
+##### source leaprc.DNA.bsc1 (this loads forcefield parameters or use source oldff/leaprc.ff99SB depending on which forcefield you would like to use)
+##### loadoff /path/to/library.lib (load all four: GGG, C1A, E1A, H1A)
+##### loadamberparams /path/to/file.frcmod (load the frcmod file with the parameters)
+##### mol = loadpdb /path/to/GO.pdb (load your GO molecule)
+##### edit mol (opens the molecule structure in a graphical format)
+###### Now, the way this was designed you should have all parameters imported well and no editing of parameters should be necessary. This saves so much time...
+##### bondbydistance mol (this will create all bonds based on distance, you should see it in the previously opened window if using xleap)
+##### saveamberparm mol mol.prmtop mol.inpcrd (prmtop is the topology file, inpcrd is the coordinate file, they can have any name really before the dot)
 
-Then edit and use the python script attached (ambertogro.py) to obtain the conversion gromacs topologies.
+#### Now, according to this https://ambermd.org/parmed_gromacs.html let's convert the files to GROMACS formats (.prmtop to .top), (.inpcrd to .gro).
+###### Just edit and run the python script accordingly, you should now have the GROMACS topologies/coords you need and you should also have a feeling of how we did it. Thank you for reading! 
 
-- You will need AmberTools installed, either from source or through conda, both are fine from what I remember. From AmberTools you will mostly need xleap (GUI) or tleap (just terminal), xleap is more useful cause you can graphically check your structure (you will see). Parmed is used, I think, in the conversion script (this script already exists). Note: As you will see/know about xleap,... it may act "weird", make sure your cursor is placed in the window/box you want to type in, check your caps lock etc. (if anything behaves weird).
-- The second thing you will need are library files and frcmod files. As you can see in GOPY, I chose to consider each CX atom as a full residue, so one GGG residue has only one atom. As I mentioned previously, initially I considered each COOH residue to contain just a C, O, O and a H atom, but later I added the "CY" atoms and considered the functional group residues to also include the atom it binds to on the graphene plane. (Note: epoxy contains one CY and one CZ). Both CY and CZ were CX atoms and were just renamed. So one will need one library file for graphene atoms, one for carboxyl, one for epoxy and one for hydroxyl - a total of four. Parameters that cannot be found in a standard set of parameters will need to be specified in the frcmod file - one file only. Thus I have attached 7 library files, 3 contain the functional groups without the CY/CZ atoms, 3 contain the functional groups with the CY/CZ atoms and one is for the pristine graphene residue GGG.lib.
-
-(I think this is the tutorial I have used when I first needed to make such topologies: https://ambermd.org/tutorials/advanced/tutorial1_orig/ . It might be useful in case I miss anything.)
-
-FORCE FIELD: Because I was interested in DNA simulations, I used parmbsc1. This is not available by default in GROMACS, but its easy to "install" if needed. Look here https://mmb.irbbarcelona.org/ParmBSC1/help.php?id=download and here http://www.gromacs.org/Downloads/User_contributions/Force_fields. It's preferable you will load a forcefield in xleap, maybe look here $AMBERHOME/dat/leap/cmd/ . In our case it's less relevant as the parameters will mostly be common for the available forcefields (except for what we add in the frcmods).
-
-LIB FILES: Here we go, there are tutorials explaining the way to create lib file. If you need help, I can also try to help with anything new. I attached the seven library files as mentioned earlier. These lib files define the atoms making up a residue.
-How do you do a new lib file? There must be some tutorials online. However, for example, for a COO residue, I would create a PDB file with only three atoms, COO. Then, with AmberTools activated, type "xleap" in your terminal. Then do:
-mol = loadpdb /home/path/to/file.pdb
-edit mol (new window apears, left click and rectangle select all atoms until they are purple/violet > then click on Edit menu > Edit selected atoms and a new table appears)
-Edit the table accordingly, then click on Table menu > Save (Whats important: Type and Charge, you can write "true" in unused I think. I added a screenshot of the table for C1A/COOH as an example)
-Then, click back on the main window of xleap and do:
-saveoff mol mol.lib
-One more step, open the mol.lib file with gedit or similar and find and replace all mol with the desired name of the residue and rename the file with that name .lib . I don't remember why this mattered.
-
-FRCMOD FILE: This will look like a mess. Initially it looked better/more organised when I only had CX to worry about. Then I added CY. Then I added CZ today (not sure if I added all needed CZ lines yet, hope I did).
-
-Anyway, the process to get the topologies is this:
-open xleap and write
-source leaprc.DNA.bsc1 (this loads forcefield parameters)
-loadoff /path/to/library.lib (load all four)
-loadamberparams /path/to/frcmod.frcmod (load the frcmod file and parameters)
-mol = loadpdb /path/to/GO.pdb
-edit mol (opens the molecule structure in a graphical format)
-bondbydistance mol (this will create all bonds based on distance, you should see it in the previously opened window)
-saveamberparm mol mol.prmtop mol.inpcrd (prmtop is the topology file, inpcrd is the coordinate file, they can have any name really before the dot)
-
-Then edit and use the python script attached (ambertogro.py) to obtain the conversion gromacs topologies.
-
-Essentially this is it. Good luck with research, hope for the best!
-Don't hesitate to contact me if anyting is unclear or you think I can be of help with something.
-
-CX           6      12.01    0.0000  A   3.39967e-01  3.59824e-01
+#### If we helped through this tutorial, you can help us back by citing our GOPY paper.
 
 
