@@ -74,5 +74,15 @@ Thus, open xleap and write (or tleap if you don't need GUI):
 ###### Just edit and run the python script accordingly, you should now have the GROMACS topologies/coords you need and you should also have a feeling of how we did it. Thank you for reading! 
 
 #### If we helped through this tutorial, you can help us back by citing our GOPY paper.
+##### The script for conversion can look like this:
+
+###### import parmed as pmd
+###### file_base = "/path/to/file/withoutfilename/"
+###### amber = pmd.load_file(file_base + 'yourfile.prmtop', file_base + 'yourfile.inpcrd')
+###### # Save a GROMACS topology and GRO file
+###### amber.save('yourfile.top')
+###### amber.save('yourfile.gro')
+
+##### Run it using python script.py. Then find your topology and coordinate file, it should work.
 
 
