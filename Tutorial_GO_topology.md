@@ -1,10 +1,10 @@
-###### The tutorial is complete, although some parts may be hard to read as it's still "raw". 
-###### Contact me if you get stuck - this way I will also know what needs improvement.
-###### (I think this is the tutorial I have used when I first needed to make such topologies: https://ambermd.org/tutorials/advanced/tutorial1_orig/ . It might be useful in case I missed anything here, as in explanation-wise for topology generation using xleap/tleap.)
+##### The tutorial is complete, although some parts may be hard to read as it's still "raw". 
+##### Contact me if you get stuck - this way I will also know what needs improvement.
+##### (I think this is the tutorial I have used when I first needed to make such topologies: https://ambermd.org/tutorials/advanced/tutorial1_orig/ . It might be useful in case I missed anything here, as in explanation-wise for topology generation using xleap/tleap.)
 
-###### Please read the bolded paragraph below:
+##### Please read the bolded paragraph below:
 ##### Link to GOPY paper: https://doi.org/10.1016/j.softx.2020.100586 . 
-###### We appreciate all citations! This tutorial is here to help those struggling with creating GROMACS or AMBER topology and coordinate files for Graphene Oxide (GO). In the following steps, GO is assumed to be functionalized with COOH, -O- and OH groups. We'll take you step by step, as if doing actual research, as we did it (to the best of our memory).
+##### We appreciate all citations! This tutorial is here to help those struggling with creating GROMACS or AMBER topology and coordinate files for Graphene Oxide (GO). In the following steps, GO is assumed to be functionalized with COOH, -O- and OH groups. We'll take you step by step, as if doing actual research, as we did it (to the best of our memory).
 
 
 
