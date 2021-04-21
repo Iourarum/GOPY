@@ -1,4 +1,4 @@
-##### The tutorial is complete, although some parts may be hard to read as it's still "raw". Also, we provided all files as a sign of courtesy to you, the reader.
+##### The tutorial is complete, although some parts may be hard to read as it's still "raw". Also, we provided all files (see folder GO_tutorial). 
 ##### Contact me if you get stuck - this way I will also know what needs improvement.
 ##### (I think this is the tutorial I have used when I first needed to make such topologies: https://ambermd.org/tutorials/advanced/tutorial1_orig/ . It might be useful in case I missed anything here, as in explanation-wise for topology generation using xleap/tleap.)
 
