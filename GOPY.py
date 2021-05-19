@@ -2346,7 +2346,7 @@ def hole_generation(init_file, number_of_holes, atom_range, uorm, iore, cleanup,
 if (len(sys.argv) > 1):
     if (sys.argv[1] == "generate_PG"):
         try:
-            generate_pristine_graphene(int(sys.argv[2]), int(sys.argv[3]), str(sys.argv[4]))
+            generate_pristine_graphene(float(sys.argv[2]), float(sys.argv[3]), str(sys.argv[4]))
         except:
             print("Please type 'python GOPY.py help'")
     elif (sys.argv[1] == "generate_GO"):
