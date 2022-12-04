@@ -49,7 +49,7 @@ Attention: Xleap has its own set of quirks you need to take into account. Keep y
 ##### mol_H1A = loadpdb /path/to/H1A.pdb
 ##### mol_E1A = loadpdb /path/to/E1A.pdb
 2. 4 Edit parameters for each new molecule
-You should be familiar with this from other AMBER tutorials.
+You should be familiar with this from other AMBER tutorials. (at a minimum see: https://ambermd.org/tutorials/advanced/tutorial1/section3.php )
 Or you may use the lib files we have provided in the GO_tutorial folder - these are identical to the ones we used for this publication: https://doi.org/10.3390/coatings10030289 .
 If you prefer to do it manually, do:
 ##### saveoff mol_GGG GGG.lib
